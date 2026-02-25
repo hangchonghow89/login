@@ -89,9 +89,9 @@ You do not normally install this APK by hand; `connectedAndroidTest` (or Android
 
 ## Step to install and run the instrumentation test APK
 1. **Install the app APK:**
-   adb install <path>/app-debug.apk
+   adb install app/build/outputs/apk/debug/app-debug.apk
 2. **Install the instrumentation test APK:**
-   adb install <path>/app-debug-androidTest.apk
+   adb install app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
 3. **Run the instrumentation test:**
    adb shell am instrument -w com.hch.loginapplication.test/androidx.test.runner.AndroidJUnitRunner
 
