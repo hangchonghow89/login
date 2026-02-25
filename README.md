@@ -87,6 +87,14 @@ After building instrumented tests, the test APK is generated at:
 
 You do not normally install this APK by hand; `connectedAndroidTest` (or Android Studio) installs both the app and this test APK and runs the tests.
 
+## Step to install and run the instrumentation test APK
+1. **Install the app APK:**
+   adb install <path>/app-debug.apk
+2. **Install the instrumentation test APK:**
+   adb install <path>/app-debug-androidTest.apk
+3. **Run the instrumentation test:**
+   adb shell am instrument -w com.hch.loginapplication.test/androidx.test.runner.AndroidJUnitRunner
+
 ## Project structure
 
 - **App code:** `app/src/main/`
@@ -98,11 +106,3 @@ You do not normally install this APK by hand; `connectedAndroidTest` (or Android
 - **No devices found:** Run `adb devices` and ensure one device shows as `device` (not `unauthorized`). For emulator, start the AVD first.
 - **Build fails:** Ensure JDK 11+ is in use (`java -version`) and `ANDROID_HOME` points to your Android SDK.
 - **Tests fail on device:** Confirm the device/emulator API level is at least **29** (minSdk).
-
-## Step to run the instrumentation test
-1. **Install the app APK**
-   adb install <path>/app-debug.apk
-2. **Install the instrumentation test APK**
-   adb install <path>/app-debug-androidTest.apk
-3. **Run the instrumentation test**
-   adb shell am instrument -w com.hch.loginapplication.test/androidx.test.runner.AndroidJUnitRunner
